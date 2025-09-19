@@ -66,6 +66,3 @@ Routing is handled with React Router:
    npm run dev
    ```
    You can now run the frontend locally on any device.
-
-## License
-MIT
