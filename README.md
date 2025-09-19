@@ -1,69 +1,71 @@
-# React + TypeScript + Vite
+# Sweet Shop Management
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Explanation
+This project is a full-stack Sweet Shop Management system. The backend is built with Node.js, Express, TypeScript, and MongoDB, providing RESTful APIs for user authentication, sweet management, and admin features. The frontend is built with React and TypeScript for a modern, responsive user experience.
 
-Currently, two official plugins are available:
+### Key Features
+- User registration and login with JWT authentication
+- Admins can add, update, restock, and delete sweets
+- Sweets are managed with image uploads via Cloudinary
+- Search, filter, and sort sweets by name, category, and price
+- Role-based access for users and admins
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Components Overview
+Reusable React components include:
+- **Navbar:** Responsive navigation bar with search and filter options.
+- **ProtectedRoute:** Guards private routes, redirecting unauthenticated users.
+- **AdminRoute:** Restricts access to admin-only pages.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Pages Overview
+Main pages in the frontend:
+- **Dashboard:** Displays sweets with search, filter, and sort functionality.
+- **Admin:** Admin panel for managing sweets (add, update, restock, delete).
+- **Login/Register:** User authentication forms.
+- **NotFound:** Shown for undefined routes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Routing Overview
+Routing is handled with React Router:
+- `/` - Dashboard (protected)
+- `/admin` - Admin panel (admin-only)
+- `/login` - Login page
+- `/register` - Registration page
+- `*` - NotFound page for invalid routes
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## My AI Usage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### AI Tools Used
+- ChatGPT
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### How I Used Them
+- Used Copilot and ChatGPT to debug errors in Multer configuration and image uploading to Cloudinary.
+- Used Copilot to create frontend templates and then manually customized them for project needs.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Reflection on AI Impact
+- AI tools greatly accelerated development, especially for repetitive code and initial test generation.
+- Copilot helped resolve errors quickly and suggested best practices, improving code quality.
+- ChatGPT provided architectural guidance and helped solve integration issues.
+- AI allowed more time to focus on business logic and clean design, making the workflow faster and more reliable.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Frontend Setup
+1. Clone the frontend repository:
+   ```
+   git clone https://github.com/SameerSinghal26/Frontend_Sweet_Shop.git
+   ```
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Set up the `.env` file and add:
+   ```
+   VITE_BASE_URL=http://localhost:8080
+   ```
+   (or your deployed backend URL)
+4. Start the frontend:
+   ```
+   npm run dev
+   ```
+   You can now run the frontend locally on any device.
+
+## License
+MIT
