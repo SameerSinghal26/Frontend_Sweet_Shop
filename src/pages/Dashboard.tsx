@@ -48,13 +48,10 @@ export default function Dashboard() {
         return;
       }
 
-      const data = await res.json();
+      await res.json();
       toast.success("Purchase successful!");
 
-      // Refresh sweets after purchase
-      const params = new URLSearchParams(location.search);
-      const q = params.get("q") || "";
-      fetchSweets(q);
+      fetchSweets();
 
     } catch (err) {
       toast.error("Something went wrong while purchasing.");
